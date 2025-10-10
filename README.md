@@ -1,6 +1,3 @@
-> [!IMPORTANT]  
-> The app is now accessible at [https://poinz.io](https://poinz.io)
-
 # Poinz - Distributed Planning Poker
 
 [![Build Status](https://github.com/d1vanloon/poinz/actions/workflows/master.yml/badge.svg)](https://github.com/d1vanloon/poinz/actions/workflows/master.yml)
