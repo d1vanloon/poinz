@@ -17,8 +17,7 @@ export default function reduceMultipleEvents(startingState, events) {
 
   const ourGetState = () => modifiedState;
 
-  // eslint-disable-next-line no-unused-vars
-  events.forEach((e, index) => {
+  events.forEach((e) => {
     // Uncomment the following line for debugging integration tests
     // console.log(`[INTEGRATION_TEST] reducing event ${e.name} at index ${index}`);
     eventReceived(e)(ourDispatch, ourGetState);
