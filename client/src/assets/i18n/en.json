@@ -57,7 +57,6 @@
   "default": "Default",
   "customCardsJsonError": "Sorry, we cannot parse the input to JSON!",
   "customCardsDuplicateError": "Make sure that you have unique values!",
-  "help": "Help",
   "password": "Password",
   "setNewPassword": "Set new password...",
   "repeatNewPassword": "Repeat password...",

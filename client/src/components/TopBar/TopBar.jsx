@@ -9,7 +9,6 @@ import WhoAmI from './WhoAmI';
 import {
   toggleBacklogSidebar,
   toggleSidebar,
-  SIDEBAR_HELP,
   SIDEBAR_ACTIONLOG,
   SIDEBAR_SETTINGS
 } from '../../state/actions/uiStateActions';
@@ -82,16 +81,6 @@ const TopBar = () => {
             {unseenError && <StyledIconExclamation className="icon-attention-alt" />}
           </StyledQuickMenuButton>
 
-          <StyledQuickMenuButton
-            data-testid="helpToggle"
-            className={`clickable pure-button pure-button-primary ${
-              sidebar === SIDEBAR_HELP ? 'pure-button-active' : ''
-            } `}
-            onClick={() => handleToggleSidebar(SIDEBAR_HELP)}
-            title={t('help')}
-          >
-            <i className="icon-help"></i>
-          </StyledQuickMenuButton>
 
           <StyledQuickMenuButton
             className="clickable pure-button pure-button-primary"

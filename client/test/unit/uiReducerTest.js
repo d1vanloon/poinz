@@ -2,7 +2,6 @@ import {
   BACKLOG_SIDEBAR_TOGGLED,
   SIDEBAR_SETTINGS,
   SIDEBAR_ACTIONLOG,
-  SIDEBAR_HELP,
   toggleBacklogSidebar,
   toggleSidebar
 } from '../../src/state/actions/uiStateActions';
@@ -34,8 +33,8 @@ test('toggle sidebar', () => {
 
   modifiedState.backlogShown = true;
 
-  modifiedState = rootReducer(modifiedState, toggleSidebar(SIDEBAR_HELP));
-  expect(modifiedState.ui.sidebar).toBe(SIDEBAR_HELP);
+  modifiedState = rootReducer(modifiedState, toggleSidebar(SIDEBAR_SETTINGS));
+  expect(modifiedState.ui.sidebar).toBe(SIDEBAR_SETTINGS);
   expect(modifiedState.ui.unseenError).toBe(true);
   expect(modifiedState.ui.backlogShown).toBe(false);
 

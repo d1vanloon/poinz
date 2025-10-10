@@ -48,6 +48,5 @@ export const toggleMatrix = () => (dispatch, getState) => {
     type: MATRIX_TOGGLED
   });
 };
-export const SIDEBAR_HELP = 'HELP';
 export const SIDEBAR_SETTINGS = 'SETTINGS';
 export const SIDEBAR_ACTIONLOG = 'ACTIONLOG';
