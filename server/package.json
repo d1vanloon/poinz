@@ -12,7 +12,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest \"./test/unit\" \"./test/integration\"",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest \"./test/unit\" \"./test/integration\"",
     "test:system": "jest \"./test/system\"",
     "test:migration": "jest --runInBand \"./test/migrations\"",
     "pretest": "npm run lint",
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",
+    "cross-env": "^10.1.0",
     "eslint": "8.51.0",
     "jest": "29.7.0",
     "migrate-mongo": "11.0.0",
