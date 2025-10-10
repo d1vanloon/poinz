@@ -8,7 +8,6 @@ import appConfig from '../../services/appConfig';
 import JoinRoomForm from './JoinRoomForm';
 import GithubRibbon from './GithubRibbon';
 import {getJoinRoomId} from '../../state/joining/joiningSelectors';
-import Changelog from '../common/Changelog';
 
 import {
   StyledActionLog,
@@ -64,9 +63,6 @@ const Landing = () => {
           </StyledEyecatcher>
         )}
 
-        <StyledEyecatcher>
-          <Changelog changelog={appConfig.changeLog} />
-        </StyledEyecatcher>
       </StyledLandingInner>
     </StyledLanding>
   );
