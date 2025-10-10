@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {L10nContext} from '../../services/l10n';
+import appConfig from '../../services/appConfig';
 import {leaveRoom} from '../../state/actions/commandActions';
 import WhoAmI from './WhoAmI';
 import {
@@ -51,7 +52,7 @@ const TopBar = () => {
               <span></span>
             </StyledBacklogToggleIcon>
           </StyledBacklogToggle>
-          <StyledPoinzLogo data-testid="logo">Poinz</StyledPoinzLogo>
+          <StyledPoinzLogo data-testid="logo">{appConfig.getAppName()}</StyledPoinzLogo>
         </StyledTopLeft>
 
         <StyledTopRight>

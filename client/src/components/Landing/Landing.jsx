@@ -47,7 +47,7 @@ const Landing = () => {
         <StyledEyecatcher>
           <StyledInfoText $small={true}>
             <i className="icon-attention"></i>
-            {t('disclaimer')}
+            {t('disclaimer', {appName: appConfig.getAppName()})}
           </StyledInfoText>
         </StyledEyecatcher>
 

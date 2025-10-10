@@ -53,7 +53,7 @@ const AppStatus = () => {
       <StyledTopBar data-testid="topBar">
         <StyledTopBarInner>
           <StyledTopLeft>
-            <StyledPoinzLogo>Poinz</StyledPoinzLogo>
+            <StyledPoinzLogo>{appConfig.getAppName()}</StyledPoinzLogo>
           </StyledTopLeft>
 
           <StyledTopRight>
@@ -72,7 +72,7 @@ const AppStatus = () => {
       </StyledTopBar>
 
       <StyledAppStatusMain>
-        <h2>Poinz Application Status</h2>
+        <h2>{appConfig.getAppName()} Application Status</h2>
 
         <p>
           Version: {appConfig.version} {format.formatDateTime(appConfig.buildTime)}

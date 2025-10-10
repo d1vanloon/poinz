@@ -24,6 +24,7 @@ export default defineConfig(({mode}) => {
       __POINZ_CONFIG__: {
         buildTime: Date.now(),
         changeLog: parseChangelogMd(),
+        appName: process.env.APP_NAME || 'Poinz',
         ...poinzConfig
       }
     },

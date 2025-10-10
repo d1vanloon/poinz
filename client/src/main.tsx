@@ -2,6 +2,10 @@ import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import {PostHogProvider} from 'posthog-js/react';
 import App from './App.tsx';
+import appConfig from './services/appConfig';
+
+// Set the page title dynamically
+document.title = appConfig.getAppName();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

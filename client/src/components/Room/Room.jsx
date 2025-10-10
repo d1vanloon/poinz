@@ -7,6 +7,7 @@ import Board from './Board';
 import TopBar from '../TopBar/TopBar';
 import RoomFooter from './RoomFooter';
 import {StyledRoom} from './_styled';
+import appConfig from '../../services/appConfig';
 
 /**
  * Is displayed as soon as the user joined a room.
@@ -14,7 +15,7 @@ import {StyledRoom} from './_styled';
  */
 const Room = ({roomId}) => {
   useEffect(() => {
-    document.title = 'Poinz - ' + roomId;
+    document.title = appConfig.getAppName() + ' - ' + roomId;
   }, [roomId]);
 
   return (

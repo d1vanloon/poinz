@@ -16,6 +16,18 @@ The goal was to provide a ready-to-use tool without the hassle of registration/l
 
 Similar tools are : https://www.pointingpoker.com/ or https://www.planningpoker.com/
 
+## Configuration
+
+### Application Name
+
+The application name can be configured via the `APP_NAME` environment variable. By default, the application uses "Poinz" as the name, but you can customize it for your organization:
+
+```bash
+export APP_NAME="MyCompany Planning Poker"
+```
+
+This will update all user-facing text to use your custom application name.
+
 ## User Manual
 
 Confused? Or you want to learn about hidden features? Read the [User Manual](docu/manual.md).

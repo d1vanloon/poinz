@@ -6,6 +6,9 @@ const settings = {
   // port for webserver & socketserver
   serverPort: process.env.PORT || 3000,
 
+  // application name - configurable via environment variable
+  appName: process.env.APP_NAME || 'Poinz',
+
   // configuration for winston logging
   log: {
     file: {
