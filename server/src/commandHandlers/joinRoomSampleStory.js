@@ -10,6 +10,6 @@ const sampleStory = {
 
 Please note: If a ${settings.appName} room is unused for more than two months, it will get deleted automatically!
 
-For more information, refer to the manual https://github.com/Zuehlke/poinz/blob/master/docu/manual.md`
+For more information, refer to the manual ${settings.githubRepositoryUrl}blob/master/docu/manual.md`
 };
 export default sampleStory;

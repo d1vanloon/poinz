@@ -9,6 +9,9 @@ const settings = {
   // application name - configurable via environment variable
   appName: process.env.APP_NAME || 'Poinz',
 
+  // GitHub repository URL - configurable via environment variable
+  githubRepositoryUrl: process.env.GITHUB_REPOSITORY_URL || 'https://github.com/Zuehlke/poinz/',
+
   // configuration for winston logging
   log: {
     file: {
