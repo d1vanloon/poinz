@@ -28,6 +28,16 @@ export APP_NAME="MyCompany Planning Poker"
 
 This will update all user-facing text to use your custom application name.
 
+### GitHub Repository URL
+
+The GitHub repository URL can be configured via the `GITHUB_REPOSITORY_URL` environment variable. This URL is used in various parts of the application, such as the sample story that references the manual:
+
+```bash
+export GITHUB_REPOSITORY_URL="https://github.com/your-org/your-poinz-fork/"
+```
+
+By default, this points to the original Poinz repository at `https://github.com/Zuehlke/poinz/`.
+
 ## User Manual
 
 Confused? Or you want to learn about hidden features? Read the [User Manual](docu/manual.md).
