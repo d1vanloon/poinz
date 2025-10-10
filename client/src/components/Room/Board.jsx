@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import {useDragLayer} from 'react-dnd';
 
-import FeedbackHint from './FeedbackHint';
 import EstimationArea from '../EstimationArea/EstimationArea';
 import Settings from '../Settings/Settings';
 import Users from '../Users/Users';
@@ -63,7 +62,6 @@ const Board = ({roomId}) => {
         <ActionLog />
       </StyledSidebarRight>
 
-      <FeedbackHint />
     </StyledBoard>
   );
 };

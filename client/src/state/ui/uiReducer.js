@@ -7,7 +7,6 @@ import {
   BACKLOG_SIDEBAR_TOGGLED,
   MARKDOWN_TOGGLED,
   MATRIX_TOGGLED,
-  NEW_USER_HINTS_HIDDEN,
   MATRIX_INCL_TRSH_TOGGLED,
   SIDEBAR_ACTIONLOG,
   SIDEBAR_TOGGLED,
@@ -15,7 +14,6 @@ import {
 } from '../actions/uiStateActions';
 import {getActiveSeasonalEasterEgg} from '../../components/common/EasterEgg';
 
-const HIDE_NEW_USER_HINTS = 'hideNewUserHints';
 const MARKDOWN_ENABLED = 'markdownEnabled';
 const BACKLOG_WIDTH = 'backlogWidth';
 
@@ -26,14 +24,12 @@ export const uiInitialState = {
   matrixShown: false,
   applause: false,
   unseenError: false,
-  newUserHintHidden: getItem(HIDE_NEW_USER_HINTS) === 'true',
   markdownEnabled: getItem(MARKDOWN_ENABLED) === 'true',
   activeEasterEgg: getActiveSeasonalEasterEgg(new Date()), // will be either a easterEgg Season Spec or undefined
   matrixIncludeTrashedStories: false
 };
 
 persistOnStateChange(MARKDOWN_ENABLED, (state) => state.ui.markdownEnabled);
-persistOnStateChange(HIDE_NEW_USER_HINTS, (state) => state.ui.newUserHintHidden);
 persistOnStateChange(BACKLOG_WIDTH, (state) => state.ui.backlogWidth);
 
 /**
@@ -120,9 +116,6 @@ export default function uiReducer(state = uiInitialState, action, ownUserId) {
       }
     }
 
-    case NEW_USER_HINTS_HIDDEN: {
-      return {...state, newUserHintHidden: true};
-    }
     case MARKDOWN_TOGGLED: {
       return {...state, markdownEnabled: !state.markdownEnabled};
     }
