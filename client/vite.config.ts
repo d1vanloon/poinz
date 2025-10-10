@@ -1,7 +1,6 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 import packageInformation from './package.json';
-import {parseChangelogMd} from './viteConfig/parseChangelogMd';
 import {getGitInformation} from './viteConfig/getGitInformation';
 import {babel} from './viteConfig/babelConfig';
 
@@ -23,7 +22,7 @@ export default defineConfig(({mode}) => {
     define: {
       __POINZ_CONFIG__: {
         buildTime: Date.now(),
-        changeLog: parseChangelogMd(),
+        appName: process.env.APP_NAME || 'Poinz',
         ...poinzConfig
       }
     },

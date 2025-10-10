@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import {L10nContext} from '../../services/l10n';
 import {joinIfReady} from '../../state/actions/commandActions';
 import {USERNAME_REGEX} from '../frontendInputValidation';
-import GithubRibbon from './GithubRibbon';
 
 import {
   StyledEyecatcher,
@@ -49,7 +48,6 @@ const WhoAreYou = () => {
 
   return (
     <StyledLanding>
-      <GithubRibbon />
       <StyledLandingInner>
         <StyledEyecatcher>
           <StyledInfoText>

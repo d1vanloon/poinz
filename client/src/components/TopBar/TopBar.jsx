@@ -3,12 +3,12 @@ import {useSelector, useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {L10nContext} from '../../services/l10n';
+import appConfig from '../../services/appConfig';
 import {leaveRoom} from '../../state/actions/commandActions';
 import WhoAmI from './WhoAmI';
 import {
   toggleBacklogSidebar,
   toggleSidebar,
-  SIDEBAR_HELP,
   SIDEBAR_ACTIONLOG,
   SIDEBAR_SETTINGS
 } from '../../state/actions/uiStateActions';
@@ -51,7 +51,7 @@ const TopBar = () => {
               <span></span>
             </StyledBacklogToggleIcon>
           </StyledBacklogToggle>
-          <StyledPoinzLogo data-testid="logo">Poinz</StyledPoinzLogo>
+          <StyledPoinzLogo data-testid="logo">{appConfig.getAppName()}</StyledPoinzLogo>
         </StyledTopLeft>
 
         <StyledTopRight>
@@ -81,16 +81,6 @@ const TopBar = () => {
             {unseenError && <StyledIconExclamation className="icon-attention-alt" />}
           </StyledQuickMenuButton>
 
-          <StyledQuickMenuButton
-            data-testid="helpToggle"
-            className={`clickable pure-button pure-button-primary ${
-              sidebar === SIDEBAR_HELP ? 'pure-button-active' : ''
-            } `}
-            onClick={() => handleToggleSidebar(SIDEBAR_HELP)}
-            title={t('help')}
-          >
-            <i className="icon-help"></i>
-          </StyledQuickMenuButton>
 
           <StyledQuickMenuButton
             className="clickable pure-button pure-button-primary"

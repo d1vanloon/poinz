@@ -2,7 +2,6 @@ import {
   BACKLOG_SIDEBAR_TOGGLED,
   SIDEBAR_SETTINGS,
   SIDEBAR_ACTIONLOG,
-  SIDEBAR_HELP,
   toggleBacklogSidebar,
   toggleSidebar
 } from '../../src/state/actions/uiStateActions';
@@ -32,12 +31,12 @@ test('toggle sidebar', () => {
   expect(modifiedState.ui.sidebar).toBe(SIDEBAR_SETTINGS);
   expect(modifiedState.ui.unseenError).toBe(true);
 
-  modifiedState.backlogShown = true;
+  modifiedState.ui.backlogShown = true;
 
-  modifiedState = rootReducer(modifiedState, toggleSidebar(SIDEBAR_HELP));
-  expect(modifiedState.ui.sidebar).toBe(SIDEBAR_HELP);
+  modifiedState = rootReducer(modifiedState, toggleSidebar(SIDEBAR_SETTINGS));
+  expect(modifiedState.ui.sidebar).toBeUndefined(); // Toggling the same sidebar twice should close it
   expect(modifiedState.ui.unseenError).toBe(true);
-  expect(modifiedState.ui.backlogShown).toBe(false);
+  expect(modifiedState.ui.backlogShown).toBe(true); // backlogShown should remain unchanged when closing sidebar
 
   modifiedState = rootReducer(modifiedState, toggleSidebar(SIDEBAR_ACTIONLOG));
   expect(modifiedState.ui.sidebar).toBe(SIDEBAR_ACTIONLOG);

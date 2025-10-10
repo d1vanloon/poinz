@@ -9,5 +9,6 @@
 const appConfig = typeof __POINZ_CONFIG__ !== 'undefined' ? __POINZ_CONFIG__ : {env: 'test'};
 export default {
   ...appConfig,
-  APP_STATUS_IDENTIFIER: 'poinzstatus'
+  APP_STATUS_IDENTIFIER: 'poinzstatus',
+  getAppName: () => appConfig.appName || 'Poinz'
 };

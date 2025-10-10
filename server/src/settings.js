@@ -6,6 +6,12 @@ const settings = {
   // port for webserver & socketserver
   serverPort: process.env.PORT || 3000,
 
+  // application name - configurable via environment variable
+  appName: process.env.APP_NAME || 'Poinz',
+
+  // GitHub repository URL - configurable via environment variable
+  githubRepositoryUrl: process.env.GITHUB_REPOSITORY_URL || 'https://github.com/d1vanloon/poinz/',
+
   // configuration for winston logging
   log: {
     file: {
