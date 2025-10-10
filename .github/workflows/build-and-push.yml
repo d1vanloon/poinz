@@ -41,6 +41,8 @@ jobs:
         env:
           VITE_PUBLIC_POSTHOG_KEY: ${{ vars.VITE_PUBLIC_POSTHOG_KEY }}
           VITE_PUBLIC_POSTHOG_HOST: ${{ vars.VITE_PUBLIC_POSTHOG_HOST }}
+          APP_NAME: ${{ vars.APP_NAME || 'Poinz' }}
+          GITHUB_REPOSITORY_URL: ${{ vars.GITHUB_REPOSITORY_URL || 'https://github.com/d1vanloon/poinz/' }}
         run: |
           npm ci
           npm run build

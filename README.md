@@ -17,20 +17,52 @@ Similar tools are : https://www.pointingpoker.com/ or https://www.planningpoker.
 
 ### Application Name
 
-The application name can be configured via the `APP_NAME` environment variable. By default, the application uses "Poinz" as the name, but you can customize it for your organization:
+The application name can be configured via the `APP_NAME` environment variable. By default, the application uses "Poinz" as the name, but you can customize it for your organization.
 
+**Note: This is a build-time configuration variable.** The value is embedded into the client application during the build process.
+
+#### For GitHub Actions (Recommended)
+1. Go to your repository settings → Secrets and variables → Actions
+2. Click on the "Variables" tab
+3. Add a new repository variable:
+   - Name: `APP_NAME`
+   - Value: `"MyCompany Planning Poker"`
+
+#### For Local Development
 ```bash
 export APP_NAME="MyCompany Planning Poker"
+npm run build
+```
+
+#### For Docker Build
+```bash
+docker build --build-arg APP_NAME="MyCompany Planning Poker" -t poinz .
 ```
 
 This will update all user-facing text to use your custom application name.
 
 ### GitHub Repository URL
 
-The GitHub repository URL can be configured via the `GITHUB_REPOSITORY_URL` environment variable. This URL is used in various parts of the application, such as the sample story that references the manual:
+The GitHub repository URL can be configured via the `GITHUB_REPOSITORY_URL` environment variable. This URL is used in various parts of the application, such as the sample story that references the manual.
 
+**Note: This is a build-time configuration variable.** The value is embedded into the client application during the build process.
+
+#### For GitHub Actions (Recommended)
+1. Go to your repository settings → Secrets and variables → Actions
+2. Click on the "Variables" tab
+3. Add a new repository variable:
+   - Name: `GITHUB_REPOSITORY_URL`
+   - Value: `"https://github.com/your-org/your-poinz-fork/"`
+
+#### For Local Development
 ```bash
 export GITHUB_REPOSITORY_URL="https://github.com/your-org/your-poinz-fork/"
+npm run build
+```
+
+#### For Docker Build
+```bash
+docker build --build-arg GITHUB_REPOSITORY_URL="https://github.com/your-org/your-poinz-fork/" -t poinz .
 ```
 
 By default, this points to the original Poinz repository at `https://github.com/d1vanloon/poinz/`.
