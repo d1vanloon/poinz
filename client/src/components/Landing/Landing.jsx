@@ -6,7 +6,6 @@ import {L10nContext} from '../../services/l10n';
 import {getActionLog} from '../../state/actionLog/actionLogSelectors';
 import appConfig from '../../services/appConfig';
 import JoinRoomForm from './JoinRoomForm';
-import GithubRibbon from './GithubRibbon';
 import {getJoinRoomId} from '../../state/joining/joiningSelectors';
 
 import {
@@ -29,7 +28,6 @@ const Landing = () => {
   if (pendingJoin) {
     return (
       <StyledLanding>
-        <GithubRibbon />
         <StyledLandingInner>
           <Loader t={t} />
         </StyledLandingInner>
@@ -39,7 +37,6 @@ const Landing = () => {
 
   return (
     <StyledLanding>
-      <GithubRibbon />
       <StyledLandingInner>
         <JoinRoomForm />
 
