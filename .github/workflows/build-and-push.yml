@@ -37,6 +37,20 @@ jobs:
           npm run docu
           node build/checkTranslationKeys.mjs
 
+      - name: Get git info
+        id: git-info
+        run: |
+          echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
+          echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "tags=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
+          # Extract version from tag (e.g., "0.1.1" from tag "0.1.1")
+          VERSION=$(git tag --points-at HEAD | head -n 1)
+          if [ -z "$VERSION" ]; then
+            # If no tag, use package.json version with commit hash
+            VERSION=$(node -p "require('./package.json').version")-$(git rev-parse --short HEAD)
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Build client
         working-directory: client
         env:
@@ -60,20 +74,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Get git info
-        id: git-info
-        run: |
-          echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
-          echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-          echo "tags=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
-          # Extract version from tag (e.g., "0.1.1" from tag "0.1.1")
-          VERSION=$(git tag --points-at HEAD | head -n 1)
-          if [ -z "$VERSION" ]; then
-            # If no tag, use package.json version with commit hash
-            VERSION=$(node -p "require('./package.json').version")-$(git rev-parse --short HEAD)
-          fi
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Build and tag Docker image
         env:
