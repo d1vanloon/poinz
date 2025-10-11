@@ -10,7 +10,7 @@ export default defineConfig(({mode}) => {
     mode === 'production'
       ? {
           env: 'production',
-          version: process.env.POINZ_VERSION || packageInformation.version
+          version: packageInformation.version
         }
       : {
           dev: 'dev',
