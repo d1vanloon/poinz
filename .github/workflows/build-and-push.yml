@@ -44,6 +44,7 @@ jobs:
           VITE_PUBLIC_POSTHOG_HOST: ${{ vars.VITE_PUBLIC_POSTHOG_HOST }}
           APP_NAME: ${{ vars.APP_NAME || 'Poinz' }}
           GITHUB_REPOSITORY_URL: ${{ vars.GITHUB_REPOSITORY_URL || 'https://github.com/d1vanloon/poinz/' }}
+          POINZ_VERSION: ${{ steps.git-info.outputs.version }}
         run: |
           npm ci
           npm run build
@@ -66,6 +67,13 @@ jobs:
           echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
           echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "tags=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
+          # Extract version from tag (e.g., "0.1.1" from tag "0.1.1")
+          VERSION=$(git tag --points-at HEAD | head -n 1)
+          if [ -z "$VERSION" ]; then
+            # If no tag, use package.json version with commit hash
+            VERSION=$(node -p "require('./package.json').version")-$(git rev-parse --short HEAD)
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Build and tag Docker image
         env:
