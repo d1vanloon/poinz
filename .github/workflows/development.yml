@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   build:
+    name: Build and test (development)
     uses: ./.github/workflows/build-and-push.yml
     with:
       push_image: false

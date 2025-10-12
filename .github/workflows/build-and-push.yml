@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: Build, test and push Docker image
     runs-on: ubuntu-latest
     permissions:
       contents: read
