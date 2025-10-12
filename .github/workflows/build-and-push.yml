@@ -37,6 +37,17 @@ jobs:
           npm run docu
           node build/checkTranslationKeys.mjs
 
+      - name: Set version from git tag
+        run: |
+          # Extract version from tag (e.g., "0.1.1" from tag "0.1.1")
+          VERSION=$(git tag --points-at HEAD | head -n 1)
+          if [ -z "$VERSION" ]; then
+            # If no tag, use package.json version with commit hash
+            VERSION=$(node -p "require('./package.json').version")-$(git rev-parse --short HEAD)
+          fi
+          echo "Setting version to: $VERSION"
+          node setPkgVersion.mjs "$VERSION"
+
       - name: Build client
         working-directory: client
         env:
