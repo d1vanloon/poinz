@@ -42,7 +42,7 @@
     "express-sslify": "1.2.0",
     "fastq": "1.15.0",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "6.1.0",
+    "mongodb": "6.20.0",
     "nanoid": "5.0.1",
     "papaparse": "5.4.1",
     "posthog-node": "^4.17.1",
