@@ -1,0 +1,60 @@
+# Dependabot configuration for Poinz
+# Documentation: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Root package.json - build tooling and documentation generation
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "root"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+
+  # Client package.json - React frontend
+  - package-ecosystem: "npm"
+    directory: "/client"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "client"
+    commit-message:
+      prefix: "client"
+      include: "scope"
+
+  # Server package.json - Node.js backend
+  - package-ecosystem: "npm"
+    directory: "/server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "server"
+    commit-message:
+      prefix: "server"
+      include: "scope"
+
+  # E2E tests package.json
+  - package-ecosystem: "npm"
+    directory: "/poinz-e2e"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "e2e"
+    commit-message:
+      prefix: "test"
+      include: "scope"
