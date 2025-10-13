@@ -8,6 +8,11 @@ on:
         type: boolean
         required: false
         default: false
+      is_release:
+        description: 'Whether this is a release build (uses latest tag) or non-release build (uses canary tag)'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   build:
@@ -86,8 +91,16 @@ jobs:
           DOCKER_USER="${DOCKER_USERNAME,,}"
           BASE_TAG="$DOCKER_REGISTRY/$DOCKER_USER/poinz"
           
-          # Build with all tags
-          TAGS_ARG="-t $BASE_TAG:latest"
+          # Build with appropriate tags based on build type
+          if [ "${{ inputs.is_release }}" == "true" ]; then
+            # Release builds get the 'latest' tag
+            TAGS_ARG="-t $BASE_TAG:latest"
+          else
+            # Non-release builds get the 'canary' tag
+            TAGS_ARG="-t $BASE_TAG:canary"
+          fi
+          
+          # Add version tags if present
           if [ ! -z "${{ steps.git-info.outputs.tags }}" ]; then
             for tag in ${{ steps.git-info.outputs.tags }}; do
               TAGS_ARG="$TAGS_ARG -t $BASE_TAG:$tag"

@@ -13,4 +13,5 @@ jobs:
     name: Build, test and push release image
     uses: ./.github/workflows/build-and-push.yml
     with:
-      push_image: true 
+      push_image: true
+      is_release: true 
