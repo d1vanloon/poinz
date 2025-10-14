@@ -40,7 +40,7 @@
     "remark-gfm": "^4.0.0",
     "reselect": "4.1.8",
     "socket.io-client": "4.7.2",
-    "styled-components": "6.1.0",
+    "styled-components": "6.1.19",
     "whatwg-fetch": "^3.6.19"
   },
   "devDependencies": {
