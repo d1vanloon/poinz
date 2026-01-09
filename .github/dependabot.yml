@@ -10,6 +10,8 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    assignees:
+      - "d1vanloon"
     labels:
       - "dependencies"
       - "root"
@@ -24,6 +26,8 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    assignees:
+      - "d1vanloon"
     labels:
       - "dependencies"
       - "client"
@@ -38,6 +42,8 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    assignees:
+      - "d1vanloon"
     labels:
       - "dependencies"
       - "server"
@@ -52,6 +58,8 @@ updates:
       interval: "weekly"
       day: "monday"
     open-pull-requests-limit: 5
+    assignees:
+      - "d1vanloon"
     labels:
       - "dependencies"
       - "e2e"
