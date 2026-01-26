@@ -1,4 +1,4 @@
-FROM node:18-bullseye
+FROM node:24-bullseye
 
 WORKDIR /usr/src/poinz
 
@@ -14,4 +14,4 @@ RUN npm install --omit=dev
 
 EXPOSE 3000
 
-CMD npm start
+CMD ["npm", "start"]
