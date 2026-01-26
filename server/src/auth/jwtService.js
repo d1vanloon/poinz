@@ -46,7 +46,7 @@ export function verifyJwt(token, roomId) {
       audience: roomId, // will check if "aud" in payload matches roomId
       issuer: ISSUER
     });
-  } catch (err) {
+  } catch {
     return undefined;
   }
 }

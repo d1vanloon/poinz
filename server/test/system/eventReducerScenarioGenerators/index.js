@@ -111,7 +111,7 @@ async function fileExists(fullFilePath) {
   try {
     await fs.access(fullFilePath, fsConst.F_OK);
     return true;
-  } catch (accessError) {
+  } catch {
     return false;
   }
 }
