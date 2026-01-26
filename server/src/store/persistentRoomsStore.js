@@ -62,7 +62,7 @@ async function init(connectionURI) {
     roomsCollection = dbInstance.collection(COLLECTION_NAME);
 
     await roomsCollection.createIndex('id', {unique: true, name: 'id_roomId'});
-  } catch (error) {
+  } catch {
     throw new Error('Could not connect to persistent Storage ' + connectionURI);
   }
 }

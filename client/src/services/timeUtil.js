@@ -1,9 +1,5 @@
-import isDate from 'date-fns/isDate';
-import format from 'date-fns/format';
-import localeDe from 'date-fns/locale/de';
-import localeEn from 'date-fns/locale/en-US';
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import formatDuration from 'date-fns/formatDuration';
+import {format, formatDistanceToNow, formatDuration, isDate} from 'date-fns';
+import {de as localeDe, enUS as localeEn} from 'date-fns/locale';
 import log from 'loglevel';
 
 /**

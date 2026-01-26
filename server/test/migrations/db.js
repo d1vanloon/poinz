@@ -29,7 +29,7 @@ export default async function initDb() {
     await roomsCollection.deleteMany({});
 
     return [dbInstance, roomsCollection];
-  } catch (error) {
+  } catch {
     throw new Error('Could not connect ' + CONNECTION_URI);
   }
 }

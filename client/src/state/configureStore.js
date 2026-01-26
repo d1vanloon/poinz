@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose, bindActionCreators} from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import {withExtraArgument} from 'redux-thunk';
 
 import rootReducer from './rootReducer';
 import hubFactory from './hub';
@@ -31,7 +31,7 @@ export default function configureStore(initialState) {
     composeEnhancers(
       applyMiddleware(
         // "sendCommand" will be available in redux action creators as third argument
-        thunkMiddleware.withExtraArgument((cmd) => hub.sendCommand(cmd))
+        withExtraArgument((cmd) => hub.sendCommand(cmd))
       )
     )
   );

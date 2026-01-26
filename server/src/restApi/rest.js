@@ -95,7 +95,7 @@ export default function restApiFactory(app, store) {
       } else {
         res.status(403).json({message: 'Forbidden'});
       }
-    } catch (e) {
+    } catch {
       res.status(404).json({message: 'room not found'});
     }
   }
