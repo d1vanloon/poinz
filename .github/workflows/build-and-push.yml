@@ -68,6 +68,27 @@ jobs:
         working-directory: server
         run: npm ci
 
+      - name: Install e2e dependencies
+        working-directory: poinz-e2e
+        run: npm ci
+
+      - name: Start server
+        working-directory: server
+        run: |
+          npm start > ../server.log 2>&1 &
+
+      - name: Start client
+        working-directory: client
+        run: |
+          npm start > ../client.log 2>&1 &
+
+      - name: Wait for app
+        run: npx wait-on tcp:3000 tcp:9000
+
+      - name: Run e2e tests
+        working-directory: poinz-e2e
+        run: npm run cypress:runheadless
+
       - name: Log in to GitHub Container Registry
         if: inputs.push_image
         uses: docker/login-action@v3
@@ -90,7 +111,7 @@ jobs:
         run: |
           DOCKER_USER="${DOCKER_USERNAME,,}"
           BASE_TAG="$DOCKER_REGISTRY/$DOCKER_USER/poinz"
-          
+
           # Build with appropriate tags based on build type
           if [ "${{ inputs.is_release }}" == "true" ]; then
             # Release builds get the 'latest' tag
@@ -99,14 +120,14 @@ jobs:
             # Non-release builds get the 'canary' tag
             TAGS_ARG="-t $BASE_TAG:canary"
           fi
-          
+
           # Add version tags if present
           if [ ! -z "${{ steps.git-info.outputs.tags }}" ]; then
             for tag in ${{ steps.git-info.outputs.tags }}; do
               TAGS_ARG="$TAGS_ARG -t $BASE_TAG:$tag"
             done
           fi
-          
+
           echo "Building docker image for commit ${{ steps.git-info.outputs.hash }} on branch ${{ steps.git-info.outputs.branch }}"
           docker build $TAGS_ARG --network=host .
 
@@ -115,4 +136,4 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ github.repository_owner }}
         run: |
-          docker image push --all-tags "ghcr.io/${DOCKER_USERNAME,,}/poinz" 
+          docker image push --all-tags "ghcr.io/${DOCKER_USERNAME,,}/poinz"
