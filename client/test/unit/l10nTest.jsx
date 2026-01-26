@@ -21,11 +21,14 @@ beforeEach(() => {
 });
 
 test('WithL10n can mount', () => {
-  const tr = create(
-    <WithL10n>
-      <div className="inner" />
-    </WithL10n>
-  );
+  let tr;
+  act(() => {
+    tr = create(
+      <WithL10n>
+        <div className="inner" />
+      </WithL10n>
+    );
+  });
 
   expect(tr.root.findByProps({className: 'inner'})).toBeDefined();
 });
