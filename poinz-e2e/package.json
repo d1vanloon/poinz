@@ -20,7 +20,7 @@
     "node": ">=18"
   },
   "devDependencies": {
-    "cypress": "^15.9.0",
+    "cypress": "^15.10.0",
     "nanoid": "5.1.6",
     "typescript": "^5.9.3"
   },
