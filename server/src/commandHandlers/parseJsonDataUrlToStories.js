@@ -29,7 +29,7 @@ export default function parseJsonDataUrlToStories(data) {
       return [];
     }
   } catch (err) {
-    throw new Error('Could not parse to stories ' + err);
+    throw new Error('Could not parse to stories ' + err, {cause: err});
   }
 }
 
