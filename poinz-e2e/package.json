@@ -2,6 +2,7 @@
   "name": "poinz-e2e",
   "version": "0.1.0",
   "description": "End to end tests modules to poinz app",
+  "type": "module",
   "scripts": {
     "lint": "eslint \"cypress/**/*.js\"",
     "format": "prettier --write \"cypress/**/*.js\"",
@@ -21,7 +22,11 @@
   },
   "devDependencies": {
     "cypress": "^15.10.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
+    "globals": "^17.1.0",
     "nanoid": "5.1.6",
+    "prettier": "3.8.1",
     "typescript": "^5.9.3"
   },
   "dependencies": {
