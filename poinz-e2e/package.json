@@ -2,7 +2,6 @@
   "name": "poinz-e2e",
   "version": "0.1.0",
   "description": "End to end tests modules to poinz app",
-  "type": "module",
   "scripts": {
     "lint": "eslint \"cypress/**/*.js\"",
     "format": "prettier --write \"cypress/**/*.js\"",
