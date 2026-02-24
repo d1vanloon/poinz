@@ -35,6 +35,12 @@ updates:
       prefix: "client"
       include: "scope"
     groups:
+      eslint-dependencies:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "eslint-*"
+          - "typescript-eslint"
       react-dependencies:
         patterns:
           - "react"
@@ -58,6 +64,12 @@ updates:
     commit-message:
       prefix: "server"
       include: "scope"
+    groups:
+      eslint-dependencies:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "eslint-*"
 
   # E2E tests package.json
   - package-ecosystem: "npm"
