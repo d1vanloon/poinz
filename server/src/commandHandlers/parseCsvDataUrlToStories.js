@@ -44,7 +44,7 @@ export default function parseCsvDataUrlToStories(data, issueTrackingUrlPattern =
       .map(issueObjectToStory.bind(undefined, issueTrackingUrlPattern))
       .filter((story) => !!story);
   } catch (err) {
-    throw new Error('Could not parse to stories ' + err);
+    throw new Error('Could not parse to stories ' + err, {cause: err});
   }
 }
 
