@@ -24,7 +24,7 @@
     "date-fns": "4.1.0",
     "history": "5.3.0",
     "loglevel": "1.9.2",
-    "nanoid": "5.1.6",
+    "nanoid": "5.1.7",
     "posthog-js": "^1.360.0",
     "purecss": "3.0.0",
     "react": "^19.2.4",
