@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "cypress": "^15.11.0",
-    "nanoid": "5.1.6",
+    "nanoid": "5.1.7",
     "typescript": "^5.9.3"
   },
   "dependencies": {
