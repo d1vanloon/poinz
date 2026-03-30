@@ -45,7 +45,7 @@
     "mongodb": "7.1.0",
     "nanoid": "5.1.7",
     "papaparse": "5.5.3",
-    "posthog-node": "^5.28.2",
+    "posthog-node": "^5.28.9",
     "rate-limiter-flexible": "^9.1.1",
     "socket.io": "4.8.3",
     "tv4": "1.3.0",
