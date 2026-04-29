@@ -48,6 +48,11 @@ updates:
           - "@types/react"
           - "@types/react-dom"
           - "react-*"
+      vite-dependencies:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "vite-*"
 
   # Server package.json - Node.js backend
   - package-ecosystem: "npm"
