@@ -13,6 +13,11 @@ on:
         type: boolean
         required: false
         default: false
+      pr_number:
+        description: 'Pull request number (when set, image is tagged with pr-<number>)'
+        type: number
+        required: false
+        default: 0
 
 jobs:
   build:
@@ -113,7 +118,10 @@ jobs:
           BASE_TAG="$DOCKER_REGISTRY/$DOCKER_USER/poinz"
 
           # Build with appropriate tags based on build type
-          if [ "${{ inputs.is_release }}" == "true" ]; then
+          if [ "${{ inputs.pr_number }}" != "0" ]; then
+            # PR builds get a pr-<number> tag
+            TAGS_ARG="-t $BASE_TAG:pr-${{ inputs.pr_number }}"
+          elif [ "${{ inputs.is_release }}" == "true" ]; then
             # Release builds get the 'latest' tag
             TAGS_ARG="-t $BASE_TAG:latest"
           else
