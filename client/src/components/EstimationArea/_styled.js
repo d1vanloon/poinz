@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 
-import {COLOR_LIGHTER_GREY, COLOR_ORANGE} from '../colors';
+import {COLOR_LIGHTER_GREY, COLOR_ORANGE, COLOR_SURFACE, COLOR_SURFACE_INVERTED} from '../colors';
 import {device, ZuehlkeFont} from '../dimensions';
 
 export const StyledEstimation = styled.div`
@@ -55,8 +55,8 @@ export const StyledApplauseHighlight = styled.div`
 
 export const StyledSelectedStory = styled.div`
   position: relative;
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: ${COLOR_SURFACE};
+  border: 1px solid ${COLOR_LIGHTER_GREY};
   padding: 8px;
   position: relative;
 `;
@@ -96,12 +96,12 @@ export const StyledCard = styled.button`
 
 export const StyledCardInner = styled.div`
   position: relative;
-  background: ${({$cardColor}) => ($cardColor ? $cardColor : 'white')};
+  background: ${({$cardColor}) => ($cardColor ? $cardColor : COLOR_SURFACE)};
   color: ${({$cardColor}) => ($cardColor ? 'white' : 'inherit')};
   padding: 28px 0;
   box-sizing: border-box;
   border-radius: 12px;
-  border: ${({$selected}) => ($selected ? '2px solid ' + COLOR_ORANGE : '2px solid white')};
+  border: ${({$selected}) => ($selected ? '2px solid ' + COLOR_ORANGE : `2px solid ${COLOR_SURFACE_INVERTED}`)};
 
   &:hover {
     box-shadow: inset 0 -113px 113px -44px rgba(19, 18, 18, 0.39);
@@ -131,7 +131,8 @@ export const StyledEstmSummCardInner = styled(StyledCardInner)`
   padding: 23px 0;
 
   opacity: ${({$wasEstimated}) => ($wasEstimated ? 1 : 0.3)};
-  border: ${({$wasEstimated}) => ($wasEstimated ? '2px solid ' + COLOR_ORANGE : '2px solid white')};
+  border: ${({$wasEstimated}) =>
+    $wasEstimated ? '2px solid ' + COLOR_ORANGE : `2px solid ${COLOR_SURFACE_INVERTED}`};
 
   > span {
     display: block;
@@ -154,7 +155,7 @@ export const StyledEstmSummCardInner = styled(StyledCardInner)`
 
 export const StyledEstimationSummary = styled.div`
   margin-top: 24px;
-  background: white;
+  background: ${COLOR_SURFACE};
   border: 1px solid ${COLOR_LIGHTER_GREY};
   padding: 8px;
 

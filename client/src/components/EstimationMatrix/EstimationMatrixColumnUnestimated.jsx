@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useDrop} from 'react-dnd';
 
+import {COLOR_LIGHTER_GREY} from '../colors';
 import {StyledValueBadge} from '../common/_styled';
 import {StyledEMColumn} from './_styled';
 import EstimationMatrixStory from './EstimationMatrixStory';
@@ -25,7 +26,11 @@ export const EstimationMatrixColumnUnestimated = ({stories, columnWidth, onStory
         </StyledValueBadge>
       </div>
       {stories.map((story) => (
-        <EstimationMatrixStory color={'#ccc'} key={'em:story:' + story.id} story={story} />
+        <EstimationMatrixStory
+          color={COLOR_LIGHTER_GREY}
+          key={'em:story:' + story.id}
+          story={story}
+        />
       ))}
     </StyledEMColumn>
   );

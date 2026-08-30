@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
 import {device, ZuehlkeFont} from '../dimensions';
-import {COLOR_LIGHT_GREY, COLOR_LIGHTER_GREY, COLOR_ORANGE, COLOR_WARNING} from '../colors';
+import {
+  COLOR_LIGHT_GREY,
+  COLOR_LIGHTER_GREY,
+  COLOR_ORANGE,
+  COLOR_SURFACE,
+  COLOR_SURFACE_INVERTED,
+  COLOR_WARNING
+} from '../colors';
 
 export const StyledUsers = styled.div`
   padding: 12px 16px 16px 12px;
@@ -85,7 +92,7 @@ export const StyledUserEstimation = styled.div`
 
 export const StyledUserEstimationGiven = styled(StyledUserEstimation)`
   position: relative;
-  border: 4px solid white;
+  border: 4px solid ${COLOR_SURFACE_INVERTED};
   color: ${({$revealed}) => ($revealed ? 'white' : COLOR_LIGHTER_GREY)};
   background: ${({$revealed, $valueColor}) => ($revealed ? $valueColor : COLOR_LIGHT_GREY)};
 
@@ -139,7 +146,7 @@ export const StyledUserQuickMenu = styled.span`
     line-height: 18px;
     text-align: center;
     vertical-align: middle;
-    background: #fff;
+    background: ${COLOR_SURFACE};
     border-radius: 50%;
     opacity: 0.9;
   }

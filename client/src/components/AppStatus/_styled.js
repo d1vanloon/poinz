@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import {COLOR_BORDER_LIGHT} from '../colors';
+
 export const StyledAppStatus = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@ export const StyledRoomsList = styled.ul`
     font-weight: 700;
 
     > div {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid ${COLOR_BORDER_LIGHT};
     }
   }
 

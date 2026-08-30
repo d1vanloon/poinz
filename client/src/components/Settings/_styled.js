@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import {
   COLOR_BACKGROUND_GREY,
   COLOR_BLUE,
+  COLOR_BORDER_LIGHT,
   COLOR_LIGHTER_GREY,
   COLOR_ORANGE,
+  COLOR_SURFACE_HOVER,
   COLOR_WARNING
 } from '../colors';
 import {StyledPasswordInput} from '../common/_styled';
@@ -89,7 +91,7 @@ export const StyledExpandButton = styled.button`
 
 export const StyledItems = styled.div`
   display: table;
-  border: 1px solid #ccc;
+  border: 1px solid ${COLOR_BORDER_LIGHT};
 
   > div button {
     display: inline-block;
@@ -130,11 +132,11 @@ export const StyledCCTableCell = styled.div`
 export const StyledCCTableHeader = styled.div`
   width: 100%;
   display: table-row;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${COLOR_BORDER_LIGHT};
 
   ${StyledCCTableCell} {
-    background: #e6e6e6;
-    color: rgba(0, 0, 0, 0.8);
+    background: ${COLOR_SURFACE_HOVER};
+    color: inherit;
   }
 `;
 
@@ -151,7 +153,7 @@ export const StyledTextarea = styled.textarea`
   font-family: monospace;
   min-height: 300px;
   margin-bottom: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid ${COLOR_BORDER_LIGHT};
 `;
 
 export const StyledCadConfigEditor = styled.div`

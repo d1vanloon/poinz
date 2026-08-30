@@ -1,12 +1,20 @@
 import styled from 'styled-components';
 
-import {COLOR_FONT_GREY, COLOR_LIGHT_GREY, COLOR_LIGHTER_GREY, COLOR_ORANGE} from '../colors';
+import {
+  COLOR_BORDER_LIGHT,
+  COLOR_FONT_GREY,
+  COLOR_LIGHT_GREY,
+  COLOR_LIGHTER_GREY,
+  COLOR_ORANGE,
+  COLOR_SURFACE,
+  COLOR_SURFACE_HOVER
+} from '../colors';
 import {device, ZuehlkeFont} from '../dimensions';
 
 export const StyledAvatar = styled.img`
   border: ${({$isOwn}) => ($isOwn ? '2px solid ' + COLOR_ORANGE : '2px solid ' + COLOR_LIGHT_GREY)};
   border-radius: 50%;
-  background: #fff;
+  background: ${COLOR_SURFACE};
   display: block;
   filter: ${({$shaded}) => ($shaded ? 'grayscale(100%)' : 'none')};
   opacity: ${({$shaded}) => ($shaded ? '0.3' : '1')};
@@ -48,7 +56,7 @@ export const StyledUndecidedBadge = styled(StyledValueBadge)`
   background: none;
   width: 16px;
   height: 16px;
-  border: 4px solid #ccc;
+  border: 4px solid ${COLOR_BORDER_LIGHT};
 `;
 
 export const StyledPasswordFieldWrapper = styled.div`
@@ -70,7 +78,7 @@ export const StyledPasswordInput = styled.input`
 export const StyledDropdown = styled.div`
   position: absolute;
   z-index: 1002;
-  background: white;
+  background: ${COLOR_SURFACE};
   border: 1px solid #575d6273;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
   padding: 8px 0;
@@ -135,12 +143,12 @@ export const StyledToggleButton = styled.button`
   font-size: small;
   box-shadow: ${({$active}) => ($active ? 'none' : 'inherit')};
   color: ${({$active}) => ($active ? '#fff' : COLOR_FONT_GREY)};
-  background: ${({$active}) => ($active ? COLOR_ORANGE : '#e6e6e6')};
+  background: ${({$active}) => ($active ? COLOR_ORANGE : COLOR_SURFACE_HOVER)};
   border-right: ${({$active}) => ($active ? '1px solid transparent' : '1px solid rgba(0,0,0,.2)')};
 `;
 
 export const StyledSection = styled.div`
-  background: white;
+  background: ${COLOR_SURFACE};
   border: 1px solid ${COLOR_LIGHTER_GREY};
   padding: 8px;
   margin: 0 0 16px 0;

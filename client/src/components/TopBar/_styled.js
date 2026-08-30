@@ -2,6 +2,7 @@ import styled, {keyframes} from 'styled-components';
 import {
   COLOR_BACKGROUND_GREY,
   COLOR_BLUE,
+  COLOR_BORDER_LIGHT,
   COLOR_FONT_GREY,
   COLOR_PURPLE,
   COLOR_WARNING
@@ -20,7 +21,7 @@ export const StyledTopBar = styled.div`
 export const StyledTopBarInner = styled.div`
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 1px 2px 0 #cccccc;
+  box-shadow: 0 1px 2px 0 ${COLOR_BORDER_LIGHT};
   background: ${COLOR_BACKGROUND_GREY};
 `;
 
@@ -164,7 +165,7 @@ export const StyledBacklogToggleIcon = styled.span`
   span,
   span:before,
   span:after {
-    background-color: #fff;
+    background-color: #fff; /* icon on blue button, stays white in both themes */
     width: 17px;
     height: 0.2em;
     display: inline-block;
