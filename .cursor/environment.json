@@ -1,0 +1,26 @@
+{
+  "name": "Poinz",
+  "install": "npm install",
+  "terminals": [
+    {
+      "name": "server",
+      "command": "cd server && npm start",
+      "description": "Poinz backend: Express + socket.io on port 3000 (in-memory store unless ATLAS_DB_URI is set)."
+    },
+    {
+      "name": "client",
+      "command": "cd client && npm start",
+      "description": "Poinz client: Vite dev server on port 9000, proxies /api and /socket.io to the backend on port 3000."
+    }
+  ],
+  "ports": [
+    {
+      "name": "client",
+      "port": 9000
+    },
+    {
+      "name": "server",
+      "port": 3000
+    }
+  ]
+}
