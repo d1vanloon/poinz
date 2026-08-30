@@ -1,6 +1,12 @@
 import {createGlobalStyle} from 'styled-components';
 
-import {COLOR_BLUE, COLOR_FONT_GREY, COLOR_LIGHTER_GREY, COLOR_ORANGE} from './components/colors';
+import {
+  COLOR_BACKGROUND_GREY,
+  COLOR_BLUE,
+  COLOR_FONT_GREY,
+  COLOR_LIGHTER_GREY,
+  COLOR_ORANGE
+} from './components/colors';
 import zFontWoff from './assets/aazuotps_30.12.13-webfont.woff2';
 
 import {StyledCardInner} from './components/EstimationArea/_styled';
