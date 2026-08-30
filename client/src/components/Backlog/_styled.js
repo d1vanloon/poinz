@@ -6,6 +6,7 @@ import {
   COLOR_LIGHT_GREY,
   COLOR_LIGHTER_GREY,
   COLOR_ORANGE,
+  COLOR_SURFACE,
   COLOR_WARNING
 } from '../colors';
 import {device, TOPBAR_HEIGHT} from '../dimensions';
@@ -82,7 +83,7 @@ export const StyledBacklogWidthDragLayer = styled.div`
   top: ${TOPBAR_HEIGHT}px;
   bottom: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--overlay-color, rgba(255, 255, 255, 0.4));
 
   > div {
     height: 100%;
@@ -97,7 +98,7 @@ export const StyledStories = styled.div`
 `;
 
 export const StyledEditForm = styled.form`
-  background: #fff;
+  background: ${COLOR_SURFACE};
   box-sizing: border-box;
   border-radius: 2px;
 
@@ -187,7 +188,7 @@ export const StyledFileImportDropZoneOverlay = styled.div`
 
 export const StyledStory = styled.div`
   position: relative;
-  background: white;
+  background: ${COLOR_SURFACE};
   padding: 8px 16px 16px 16px;
   margin-bottom: 16px;
   box-sizing: border-box;
@@ -231,7 +232,7 @@ export const StyledStoryToolbar = styled.div`
 
   ${StyledStory}:hover & i {
     opacity: 0.6;
-    background: white;
+    background: ${COLOR_SURFACE};
     border-radius: 50%;
 
     &:hover {

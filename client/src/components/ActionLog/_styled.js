@@ -5,6 +5,7 @@ import {
   COLOR_LIGHT_GREY,
   COLOR_LIGHTER_GREY,
   COLOR_ORANGE,
+  COLOR_SURFACE,
   COLOR_WARNING
 } from '../colors';
 
@@ -35,7 +36,7 @@ export const StyledActionLogList = styled.ul`
 `;
 
 export const StyledActionLogListItem = styled.li`
-  background: #fff;
+  background: ${COLOR_SURFACE};
   padding: 4px;
   margin-bottom: 8px;
   box-sizing: border-box;

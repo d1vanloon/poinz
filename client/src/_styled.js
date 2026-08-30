@@ -1,6 +1,12 @@
 import {createGlobalStyle} from 'styled-components';
 
-import {COLOR_BLUE, COLOR_FONT_GREY, COLOR_LIGHTER_GREY, COLOR_ORANGE} from './components/colors';
+import {
+  COLOR_BACKGROUND_GREY,
+  COLOR_BLUE,
+  COLOR_FONT_GREY,
+  COLOR_LIGHTER_GREY,
+  COLOR_ORANGE
+} from './components/colors';
 import zFontWoff from './assets/aazuotps_30.12.13-webfont.woff2';
 
 import {StyledCardInner} from './components/EstimationArea/_styled';
@@ -15,8 +21,45 @@ const Global = createGlobalStyle`
     font-style: normal;
   }
 
+  /*
+    Theme colors.
+    Light theme is the default. If the user's system prefers dark mode,
+    the custom properties are overridden accordingly.
+  */
+  :root {
+    --color-lighter-grey: #e8e8e8;
+    --color-light-grey: #575d62;
+    --color-font-grey: #484e54;
+    --color-background-grey: rgb(250, 250, 250);
+    --color-purple: #985b9c;
+    --color-surface: #ffffff;
+    --color-surface-inverted: #ffffff;
+    --color-surface-hover: #e6e6e6;
+    --color-border-light: #cccccc;
+    --overlay-color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+
+      --color-lighter-grey: #3a4046;
+      --color-light-grey: #9aa4ac;
+      --color-font-grey: #d8dde2;
+      --color-background-grey: #121619;
+      --color-purple: #c08fc4;
+      --color-surface: #1e2429;
+      --color-surface-inverted: #2a3138;
+      --color-surface-hover: #394149;
+      --color-border-light: #3a4046;
+      --overlay-color: rgba(0, 0, 0, 0.4);
+      --scrollbar-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
   body {
     color: ${COLOR_FONT_GREY};
+    background: ${COLOR_BACKGROUND_GREY};
   }
 
   /* purecss form overrides */
@@ -143,7 +186,7 @@ const Global = createGlobalStyle`
     /* Works on Firefox */
     * {
       scrollbar-width: thin;
-      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      scrollbar-color: var(--scrollbar-color, rgba(0, 0, 0, 0.2)) transparent;
     }
 
     /* Works on Chrome, Edge, and Safari */
@@ -156,7 +199,7 @@ const Global = createGlobalStyle`
     }
 
     *::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: var(--scrollbar-color, rgba(0, 0, 0, 0.2));
       border-radius: 20px;
       border: 3px solid transparent;
     }

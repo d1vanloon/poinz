@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {COLOR_FONT_GREY, COLOR_LIGHTER_GREY} from '../colors';
+import {COLOR_FONT_GREY, COLOR_LIGHTER_GREY, COLOR_SURFACE} from '../colors';
 import {StyledValueBadge} from '../common/_styled';
 
 export const StyledEstimationMatrix = styled.div`
@@ -8,8 +8,8 @@ export const StyledEstimationMatrix = styled.div`
   flex-flow: column nowrap;
 
   position: relative;
-  background: #fff;
-  border: 1px solid #e8e8e8;
+  background: ${COLOR_SURFACE};
+  border: 1px solid ${COLOR_LIGHTER_GREY};
   padding: 8px;
   margin: 8px 16px;
 
