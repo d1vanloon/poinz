@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import ValidatedInput from '../common/ValidatedInput';
 import {EMAIL_REGEX, USERNAME_REGEX} from '../frontendInputValidation';
-import avatarIcons from '../../assets/avatars';
+import avatarIcons, {ADDITIONAL_AVATARS} from '../../assets/avatars';
 import {getOwnUser} from '../../state/users/usersSelectors';
 import {toggleExcluded, setUsername, setEmail, setAvatar} from '../../state/actions/commandActions';
 import {L10nContext} from '../../services/l10n';
@@ -120,12 +120,15 @@ const UserSettings = () => {
         {t('avatarInfo')}
 
         <StyledAvatarGrid data-testid="avatarGrid">
-          {avatarIcons.map((aIcn, index) => (
+          {[
+            ...avatarIcons.map((image, id) => ({image, id})),
+            ...ADDITIONAL_AVATARS.map(({image, id}) => ({image, id}))
+          ].map(({image, id}) => (
             <StyledMiniAvatar
-              $selected={user.avatar === index}
-              src={aIcn}
-              key={'aIcn_' + aIcn}
-              onClick={(evt) => onMiniAvatarClicked(index, evt)}
+              $selected={user.avatar === id}
+              src={image}
+              key={'aIcn_' + image}
+              onClick={(evt) => onMiniAvatarClicked(id, evt)}
             />
           ))}
         </StyledAvatarGrid>

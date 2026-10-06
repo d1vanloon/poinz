@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import avatarIcons, {SPECIAL} from '../../assets/avatars';
+import avatarIcons, {ADDITIONAL_AVATARS, SPECIAL} from '../../assets/avatars';
 
 import {StyledAvatar} from './_styled';
 
@@ -19,7 +19,12 @@ function getImageSource(user) {
   if (user.email) {
     return `https://www.gravatar.com/avatar/${user.emailHash}?size=60`; // the gravatar case
   } else if (user.avatar) {
-    return user.avatar === -1 ? SPECIAL : avatarIcons[user.avatar % avatarIcons.length];
+    if (user.avatar === -1) {
+      return SPECIAL;
+    }
+
+    const additionalAvatar = ADDITIONAL_AVATARS.find(({id}) => id === user.avatar);
+    return additionalAvatar?.image || avatarIcons[user.avatar % avatarIcons.length];
   } else {
     return avatarIcons[0];
   }
