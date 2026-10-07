@@ -45,6 +45,28 @@ it('join room, open settings menu and change user settings', function () {
     .find(tid('avatarGrid') + ' img:nth-child(4)')
     .click();
 
+  Room.Settings.settingsContainer()
+    .find(tid('avatarGrid') + ' img:nth-child(21)')
+    .click();
+  Room.TopBar.whoami()
+    .find('img')
+    .should(
+      'have.attr',
+      'src',
+      'https://upload.wikimedia.org/wikipedia/en/6/6a/Minnesota_Duluth_Bulldogs_logo.svg'
+    );
+
+  Room.Settings.settingsContainer()
+    .find(tid('avatarGrid') + ' img:nth-child(22)')
+    .click();
+  Room.TopBar.whoami()
+    .find('img')
+    .should(
+      'have.attr',
+      'src',
+      'https://upload.wikimedia.org/wikipedia/commons/f/f9/Minnesota_Golden_Gophers_logo.svg'
+    );
+
   // -- set gravatar email address
   Room.Settings.settingsContainer().find(tid('gravatarEmailInput')).type(this.user.email);
   cy.get(tid('saveEmailButton')).click();

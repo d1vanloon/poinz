@@ -44,3 +44,14 @@ export default [
 ];
 
 export const SPECIAL = SPECIALAVATAR;
+
+export const ADDITIONAL_AVATARS = [
+  {
+    id: 20,
+    image: 'https://upload.wikimedia.org/wikipedia/en/6/6a/Minnesota_Duluth_Bulldogs_logo.svg'
+  },
+  {
+    id: 21,
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Minnesota_Golden_Gophers_logo.svg'
+  }
+];
