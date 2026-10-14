@@ -16,6 +16,8 @@ export const StyledAvatar = styled.img`
   border-radius: 50%;
   background: ${COLOR_SURFACE};
   display: block;
+  object-fit: contain;
+  object-position: center;
   filter: ${({$shaded}) => ($shaded ? 'grayscale(100%)' : 'none')};
   opacity: ${({$shaded}) => ($shaded ? '0.3' : '1')};
 
@@ -167,4 +169,3 @@ export const StyledSection = styled.div`
     margin-top: 0;
   }
 `;
-
